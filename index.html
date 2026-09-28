@@ -177,9 +177,10 @@ body.detail-open .home-fab{opacity:1;pointer-events:auto;transform:translateX(-5
 .card ul li::before{content:"";position:absolute;left:3px;top:10px;width:8px;height:8px;background:var(--accent);transform:rotate(45deg)}
 .works{display:flex;flex-wrap:wrap;gap:8px;border-top:1px dashed var(--line);padding-top:15px}
 .works a,.works span{display:inline-flex;align-items:center;gap:6px;font-size:12px;
-  background:rgba(245,163,0,.1);border:1.5px solid rgba(245,163,0,.4);color:var(--ink);
   border-radius:99px;padding:4px 13px;text-decoration:none;transition:.25s}
-.works a:hover{background:var(--accent);color:#fff;transform:translateY(-2px)}
+.works a{background:var(--accent);color:#fff;border:1.5px solid var(--accent);font-weight:700}
+.works a:hover{background:var(--accent-deep);border-color:var(--accent-deep);color:#fff;transform:translateY(-2px)}
+.works span{background:rgba(67,40,26,.05);color:var(--ink-soft);border:1.5px dashed var(--line)}
 
 .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
 .gallery figure{margin:0;border-radius:12px;overflow:hidden;cursor:zoom-in;position:relative;border:2px solid var(--line);background:#fff}
