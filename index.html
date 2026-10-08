@@ -348,7 +348,7 @@ const projs=[
    "运用可视化工具制作专业 PPT，突出产品创新点和专利技术",
    "参与技术文档的视觉化呈现，提升项目展示效果",
    "目前项目已完成核心功能开发与原型设计，已申请到 4 项相关技术专利，校级二等奖"],
-  works:[["🥈","校级二等奖 · 获奖证明"],
+  works:[["🥈","校级二等奖 · 获奖证明","__l5e/assets-v1/cedars-award/second-prize-cert.jpg"],
    ["📘","商业企划书（本人美工设计）","__l5e/assets-v1/969f91ab-a47f-41f8-955f-4753a513c59e/商业企划书（美工已改）_4.pdf"],
    ["🖼","商业化路演 PPT（本人制作）","__l5e/assets-v1/d0818e8c-ef7f-48b0-aa58-61e73d5ae9e0/0402ppt.pdf"],
    ["📜","专利 · 一种简历解析与岗位需求建模的人岗匹配模型","__l5e/assets-v1/f956ae36-663e-4db6-a61a-10df8e55cd2c/一种简历解析与岗位需求建模的人岗匹配模型.pdf"],
@@ -451,7 +451,7 @@ const projsEn=[
    "Used visualization tools to build a professional deck that highlights product innovation and patented tech",
    "Visualized technical documents to strengthen the project's presentation",
    "The project finished core development and prototyping, filed 4 patents, and won a university second prize"],
-  works:[["🥈","University second prize · award certificate"],
+  works:[["🥈","University second prize · award certificate","__l5e/assets-v1/cedars-award/second-prize-cert.jpg"],
    ["📘","Business plan (my visual design)","__l5e/assets-v1/969f91ab-a47f-41f8-955f-4753a513c59e/商业企划书（美工已改）_4.pdf"],
    ["🖼","Commercial pitch deck (by me)","__l5e/assets-v1/d0818e8c-ef7f-48b0-aa58-61e73d5ae9e0/0402ppt.pdf"],
    ["📜","Patent · résumé parsing & job-requirement modeling","__l5e/assets-v1/f956ae36-663e-4db6-a61a-10df8e55cd2c/一种简历解析与岗位需求建模的人岗匹配模型.pdf"],
@@ -765,8 +765,8 @@ const scene=new THREE.Scene();
 const camera=new THREE.PerspectiveCamera(34,innerWidth/innerHeight,.1,200);
 
 /* 相机状态：球坐标 + 阻尼 */
-const cam={theta:.72,phi:1.02,dist:23,tgt:new THREE.Vector3(0,1.6,0),
-  tTheta:.72,tPhi:1.02,tDist:23,fly:null};
+const cam={theta:.72,phi:1.02,dist:30,tgt:new THREE.Vector3(0,1.6,0),
+  tTheta:.72,tPhi:1.02,tDist:30,fly:null};
 function applyCam(){
   const {theta,phi,dist,tgt}=cam;
   camera.position.set(tgt.x+dist*Math.sin(phi)*Math.sin(theta),
@@ -827,13 +827,13 @@ const seaOuter=new THREE.Mesh(new THREE.CircleGeometry(32,96),new THREE.MeshLamb
 seaOuter.rotation.x=-Math.PI/2;seaOuter.position.y=-1.75;seaOuter.receiveShadow=true;scene.add(seaOuter);
 const seaInner=new THREE.Mesh(new THREE.CircleGeometry(17,72),new THREE.MeshLambertMaterial({color:'#7fd4cf',transparent:true,opacity:.9}));
 seaInner.rotation.x=-Math.PI/2;seaInner.position.y=-1.66;scene.add(seaInner);
-const surf=new THREE.Mesh(new THREE.RingGeometry(9.15,10.9,96),new THREE.MeshLambertMaterial({color:'#f4faf6',transparent:true,opacity:.92}));
+const surf=new THREE.Mesh(new THREE.RingGeometry(11.4,13.4,96),new THREE.MeshLambertMaterial({color:'#f4faf6',transparent:true,opacity:.92}));
 surf.rotation.x=-Math.PI/2;surf.position.y=-1.5;scene.add(surf);
-const surf2=new THREE.Mesh(new THREE.RingGeometry(8.85,9.35,80),new THREE.MeshLambertMaterial({color:'#e4f2ec',transparent:true,opacity:.5}));
+const surf2=new THREE.Mesh(new THREE.RingGeometry(11.1,11.6,80),new THREE.MeshLambertMaterial({color:'#e4f2ec',transparent:true,opacity:.5}));
 surf2.rotation.x=-Math.PI/2;surf2.position.y=-1.46;scene.add(surf2);
 const waves=[];
 for(let i=0;i<26;i++){
-  const a2=i/26*Math.PI*2+Math.random()*.3,r=9.4+Math.random()*2.4;
+  const a2=i/26*Math.PI*2+Math.random()*.3,r=11.6+Math.random()*2.6;
   const dot=new THREE.Mesh(new THREE.CylinderGeometry(.2,.3,.07,10),new THREE.MeshLambertMaterial({color:'#f2f8f4',transparent:true,opacity:.85}));
   dot.position.set(Math.cos(a2)*r,-1.47,Math.sin(a2)*r);scene.add(dot);
   waves.push({m:dot});
@@ -864,11 +864,11 @@ function wbox(parent,c,x,y,z,w,h,d){
 
 /* ===== 木底座 + 草地 ===== */
 const island=new THREE.Group();scene.add(island);
-const baseC=new THREE.Mesh(new THREE.CylinderGeometry(8.8,9.3,1.2,72),M('#a87b47'));
+const baseC=new THREE.Mesh(new THREE.CylinderGeometry(11,11.5,1.2,72),M('#a87b47'));
 baseC.position.y=-.85;baseC.receiveShadow=true;island.add(baseC);
-const baseTop=new THREE.Mesh(new THREE.CylinderGeometry(8.8,8.8,.28,72),M('#c89b62'));
+const baseTop=new THREE.Mesh(new THREE.CylinderGeometry(11,11,.28,72),M('#c89b62'));
 baseTop.position.y=-.14;baseTop.receiveShadow=true;island.add(baseTop);
-const grass=new THREE.Mesh(new THREE.CylinderGeometry(8.55,8.55,.22,72),M('#8fc07a'));
+const grass=new THREE.Mesh(new THREE.CylinderGeometry(10.7,10.7,.22,72),M('#8fc07a'));
 grass.position.y=.1;grass.receiveShadow=true;island.add(grass);
 /* 草色补丁 + 小路 */
 [[3.2,.3,'#9fce7f',2.6,1],[-3.8,-1.2,'#9fce7f',2.2,1],[.8,3.4,'#a5d18e',2.4,1],[1.2,-2.2,'#efe3c0',2.8,1.1],[-2.6,-3.2,'#efe3c0',2,1.1]].forEach(([x,z,c,r,ry])=>{
@@ -1063,26 +1063,26 @@ function decoIntern(g,H){
   box(g,'#f5a300',.82,.34,-1.02,.5,.05,.05);
   box(g,'#f5a300',1.34,.34,-1.02,.5,.05,.05);
 }
-makeBuilding('about',-4.6,2.1,{w:2,d:2,floors:3,fh:.95,wall:'#f7ecd7',side:'#e6d3ac',win:'#f5a300',sign:'ABOUT',
+makeBuilding('about',-5.7,2.6,{w:2,d:2,floors:3,fh:.95,wall:'#f7ecd7',side:'#e6d3ac',win:'#f5a300',sign:'ABOUT',
   deco:decoAbout});
-makeBuilding('club',.4,-4.5,{w:2.6,d:2.2,floors:5,fh:.9,wall:'#5aa7d8',side:'#3f8cc4',win:'#eaf6ff',sign:'CLUB',signW:2,
+makeBuilding('club',.5,-5.6,{w:2.6,d:2.2,floors:5,fh:.9,wall:'#5aa7d8',side:'#3f8cc4',win:'#eaf6ff',sign:'CLUB',signW:2,
   deco:decoClub});
-makeBuilding('proj',4.6,-1.7,{w:2.2,d:2,floors:4,fh:.85,wall:'#cfe6ee',side:'#a9ccd6',win:'#eaf6ff',sign:'PROJECT',signW:2.6,
+makeBuilding('proj',5.7,-2.1,{w:2.2,d:2,floors:4,fh:.85,wall:'#cfe6ee',side:'#a9ccd6',win:'#eaf6ff',sign:'PROJECT',signW:2.6,
   deco:decoProj});
-makeBuilding('skills',4.9,2.5,{w:2.1,d:1.9,floors:2,fh:1,wall:'#7cbf6b',side:'#5f9e56',win:'#eaf6ff',sign:'SKILLS',signW:2.3,
+makeBuilding('skills',6.1,3.1,{w:2.1,d:1.9,floors:2,fh:1,wall:'#7cbf6b',side:'#5f9e56',win:'#eaf6ff',sign:'SKILLS',signW:2.3,
   deco:decoSkills});
-makeBuilding('life',-2,4.5,{w:1.9,d:1.8,floors:2,fh:.95,wall:'#f7ecd7',side:'#e6d3ac',win:'#5cb8ae',sign:'LIFE',signW:1.8,
+makeBuilding('life',-2.5,5.6,{w:1.9,d:1.8,floors:2,fh:.95,wall:'#f7ecd7',side:'#e6d3ac',win:'#5cb8ae',sign:'LIFE',signW:1.8,
   deco:decoLife});
-makeBuilding('contact',2.7,4.7,{w:2,d:1.8,floors:2,fh:.95,wall:'#f6c1c6',side:'#e59aa5',win:'#fff6ec',sign:'POST',signW:1.8,
+makeBuilding('contact',3.4,5.9,{w:2,d:1.8,floors:2,fh:.95,wall:'#f6c1c6',side:'#e59aa5',win:'#fff6ec',sign:'POST',signW:1.8,
   deco:decoContact});
-makeBuilding('intern',-3.7,-2.3,{w:2,d:1.9,floors:2,fh:.95,wall:'#fdf8ee',side:'#e6d9be',win:'#f5a300',sign:'INTERN',signW:2.2,
+makeBuilding('intern',-4.6,-2.9,{w:2,d:1.9,floors:3,fh:.95,wall:'#fdf8ee',side:'#e6d9be',win:'#f5a300',sign:'INTERN',signW:2.2,
   deco:decoIntern});
 palm(-3.4,5.7,.8);
 
 /* ===== 摩天轮（实习） ===== */
 const fer=new THREE.Group();
-fer.position.set(-5.2,0,-2.4);
-fer.rotation.y=Math.atan2(5.2,2.4);
+fer.position.set(-4.0,0,-6.2);
+fer.rotation.y=Math.atan2(4.0,6.2);
 island.add(fer);
 box(fer,'#c89b62',0,.25,0,3,0.5,3);
 box(fer,'#b08147',-1,1.9,0,.22,3.6,.22).rotation.z=.32;
@@ -1100,9 +1100,20 @@ for(let i=0;i<8;i++){
 }
 const capC=['#e8836f','#5aa7d8','#7cbf6b','#f5a300','#e8836f','#5aa7d8','#7cbf6b','#f5a300'];
 const cabins=[];
+/* 小乘客：坐进每个摩天轮吊舱里，随吊舱一起保持竖直 */
+function rider(parent,x,y,z,shirt,skin){
+  const r=new THREE.Group();r.position.set(x,y,z);
+  box(r,shirt,0,.01,0,.13,.14,.1);
+  const h=new THREE.Mesh(new THREE.SphereGeometry(.07,7,6),M(skin||'#f2c79b'));
+  h.position.set(0,.16,0);h.castShadow=true;r.add(h);
+  box(r,'#43281a',0,.21,-.01,.1,.05,.08);
+  parent.add(r);return r;
+}
 for(let i=0;i<8;i++){
   const a2=i*Math.PI/4;
   const c2=box(wheel,capC[i],2.1*Math.cos(a2),-2.1*Math.sin(a2)-.35,0,.5,.42,.42);
+  rider(c2,-.08,0,0,'#e05d4b','#ffe0c0');
+  rider(c2,.08,0,0,'#5aa7d8','#ffd9b3');
   cabins.push(c2);
 }
 box(wheel,'#43281a',0,0,.18,.3,.3,.3);
@@ -1160,7 +1171,7 @@ function burstFirework(r){
 
 /* ===== 小火车（环岛轨道） ===== */
 const railPts=[];
-for(let i=0;i<=36;i++){const a2=i/36*Math.PI*2;railPts.push(new THREE.Vector3(Math.cos(a2)*7.6,0,Math.sin(a2)*7.6))}
+for(let i=0;i<=36;i++){const a2=i/36*Math.PI*2;railPts.push(new THREE.Vector3(Math.cos(a2)*9.2,0,Math.sin(a2)*9.2))}
 const curve=new THREE.CatmullRomCurve3(railPts,true);
 for(const off of[-.28,.28]){
   const tube=new THREE.Mesh(new THREE.TubeGeometry(curve,90,.045,6,true),M('#8a6a45'));
@@ -1168,16 +1179,16 @@ for(const off of[-.28,.28]){
   tube.position.x=off*0; /* 双轨：平移曲线难，用双半径曲线 */
   island.add(tube);
 }
-/* 重画双轨：半径 7.32 / 7.88 */
+/* 重画双轨：半径 8.9 / 9.5 */
 island.children.filter(c=>c.geometry&&c.geometry.type==='TubeGeometry').forEach(c=>island.remove(c));
-for(const r of[7.32,7.88]){
+for(const r of[8.9,9.5]){
   const pts=[];for(let i=0;i<=36;i++){const a2=i/36*Math.PI*2;pts.push(new THREE.Vector3(Math.cos(a2)*r,.42,Math.sin(a2)*r))}
   const tube=new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts,true),90,.05,6,true),M('#8a6a45'));
   island.add(tube);
 }
 for(let i=0;i<40;i++){
   const a2=i/40*Math.PI*2;
-  const tie=box(island,'#6d4a26',Math.cos(a2)*7.6,.36,Math.sin(a2)*7.6,1.1,.07,.18);
+  const tie=box(island,'#6d4a26',Math.cos(a2)*9.2,.36,Math.sin(a2)*9.2,1.1,.07,.18);
   tie.rotation.y=-a2;
 }
 const train=new THREE.Group();island.add(train);
@@ -1186,7 +1197,8 @@ const cars=[];
   const car=new THREE.Group();
   box(car,c,0,.28,0,i?1.3:1.5,.62,i?1.3:1.5).scale.set(i?0.62:0.72,.62,i?0.62:0.72);
   if(!i){box(car,'#43281a',0,.85,-.5,.3,.5,.3);box(car,'#fffdf4',0,.85,.5,.55,.34,.06)}
-  else box(car,'#fffdf4',0,.42,.62,.4,.26,.06);
+  else{box(car,'#fffdf4',0,.42,.62,.4,.26,.06);
+    rider(car,-.2,.55,.08,'#7cbf6b','#ffe0c0');rider(car,.2,.55,.08,'#e8836f','#ffd9b3');}
   cars.push(car);train.add(car);
 });
 let trainT=0;
@@ -1293,7 +1305,7 @@ function path(x2,z2,n){
     stone(x2*t+(Math.random()-.5)*.22, z2*t+(Math.random()-.5)*.22);
   }
 }
-[[-4.6,2.1],[.4,-4.5],[4.6,-1.7],[4.9,2.5],[-2,4.5],[2.7,4.7],[-3.7,-2.3],[-5.2,-2.4]].forEach(([x,z])=>path(x,z,7));
+[[-5.7,2.6],[.5,-5.6],[5.7,-2.1],[6.1,3.1],[-2.5,5.6],[3.4,5.9],[-4.6,-2.9],[-4.0,-6.2]].forEach(([x,z])=>path(x,z,7));
 /* ===== 岛屿杂件：长椅/栅栏/礁石/海鸟 ===== */
 function bench(x,z,ry){
   const b=new THREE.Group();b.position.set(x,.14,z);b.rotation.y=ry;island.add(b);
@@ -1316,17 +1328,32 @@ function rock(x,z,s){
   const r=new THREE.Group();r.position.set(x,-.02,z);r.scale.setScalar(s);island.add(r);
   box(r,'#9aa3ad',0,.14,0,.6,.28,.5);box(r,'#8b95a0',.22,.1,.1,.34,.2,.3);
 }
-rock(-5.6,-4.4,1);rock(6.2,4.6,1.2);rock(4.6,-5,.9);rock(-6.6,2.8,.8);
+rock(-7,-5.4,1);rock(7.8,5.6,1.2);rock(5.8,-6.4,.9);rock(-8.2,3.6,.8);
 /* 海鸟（V 形，绕岛飞行） */
 const birds=[];
-[[10,0,9.6,.55],[12,2.5,11,1.05],[-11,4.7,10.4,.8]].forEach(([r,a0,y,s],i)=>{
+[[10,0,9.6,.55],[12,2.5,11,1.05],[-11,4.7,10.4,.8],
+ [9.5,1.2,-10,.7],[-10,5.6,8.4,.95],[13,3.4,6,.6]].forEach(([r,a0,y,s],i)=>{
   const b=new THREE.Group();scene.add(b);
   box(b,'#fff',0,0,0,.5,.05,.08);
   box(b,'#fff',-.17,-.02,-.03,.28,.04,.07).rotation.z=Math.PI*.2;
   box(b,'#fff',.17,-.02,-.03,.28,.04,.07).rotation.z=-Math.PI*.2;
   birds.push({g:b,r,a0,y,sp:(i%2?s:-s)});
 });
+/* 海面摇曳的小帆船（可点互动） */
+const boat=new THREE.Group();
+boat.position.set(11,-1.68,6.5);
+boat.rotation.y=.7;
+scene.add(boat);
+box(boat,'#8a5a33',0,.05,0,1.6,.4,.62);
+box(boat,'#73421f',0,.24,0,1.3,.16,.5);
+box(boat,'#43281a',0,.62,0,.1,1.15,.1);
+box(boat,'#fffdf4',.38,.86,0,.6,.9,.04).rotation.z=-.1;
+box(boat,'#f5a300',-.22,.52,0,.34,.46,.04).rotation.z=.12;
+box(boat,'#e05d4b',0,1.34,0,.18,.1,.1);
 const interactables=[];
+fer.userData.key='ferris';interactables.push(fer);
+train.userData.key='train';interactables.push(train);
+boat.userData.key='boat';interactables.push(boat);
 for(const [x,z] of [[-3.4,.6],[3.6,-.6],[.6,-3.4],[-.5,3.6]]){
   const lamp=new THREE.Group();lamp.position.set(x,0,z);
   lamp.userData.key='lamp';lamp.userData.on=false;
@@ -1374,7 +1401,7 @@ function pick(cx2,cy2){
 }
 for(const [k,b] of Object.entries(builds))b.group.userData.key=k;
 /* 每栋楼 hover 时的浮空标签文案 */
-const HOVER_TXT={about:{zh:'认识我',en:'ABOUT ME'},club:{zh:'40+ 场活动',en:'40+ EVENTS'},proj:{zh:'12 个项目',en:'12 PROJECTS'},intern:{zh:'今日营业',en:'OPEN TODAY'},skills:{zh:'我的工具箱',en:'MY TOOLBOX'},life:{zh:'岛外生活',en:'OFF ISLAND'},contact:{zh:'写信给我',en:'WRITE TO ME'}};
+const HOVER_TXT={about:{zh:'认识我',en:'ABOUT ME'},club:{zh:'40+ 场活动',en:'40+ EVENTS'},proj:{zh:'12 个项目',en:'12 PROJECTS'},intern:{zh:'今日营业',en:'OPEN TODAY'},skills:{zh:'我的工具箱',en:'MY TOOLBOX'},life:{zh:'岛外生活',en:'OFF ISLAND'},contact:{zh:'写信给我',en:'WRITE TO ME'},ferris:{zh:'坐摩天轮吗？',en:'Take a ride?'},train:{zh:'环岛小火车',en:'Island train'},boat:{zh:'海上小帆船',en:'Little sailboat'}};
 const hoverLabel=document.getElementById('hoverLabel');
 function showHoverLabel(k,x,y){
   if(k&&k!=='lamp'&&HOVER_TXT[k]){
@@ -1402,7 +1429,7 @@ addEventListener('pointermove',e=>{
     if(k!==hoverKey){
       hoverKey=k;
       cv.classList.toggle('hover-b',!!k);
-      if(k&&k!=='lamp')window.__co.setBoard(k);
+      if(k&&k!=='lamp'&&k!=='ferris'&&k!=='train'&&k!=='boat')window.__co.setBoard(k);
     }
     showHoverLabel(k,e.clientX,e.clientY);
   }
@@ -1413,6 +1440,8 @@ addEventListener('pointerup',e=>{
     const o=pick(e.clientX,e.clientY);
     if(o){
       if(o.userData.key==='lamp')toggleLamp(o);
+      else if(o.userData.key==='ferris'||o.userData.key==='train')rideRide(o.userData.key);
+      else if(o.userData.key==='boat')showToast(lang==='en'?'A little sailboat drifts on the sea ⛵':'有只小帆船在海上漂呀 ⛵');
       else flyTo(o.userData.key);
     }
   }
@@ -1425,11 +1454,11 @@ cv.addEventListener('wheel',e=>{
 },{passive:false});
 /* 触屏双指缩放略 */
 
-const HOME={tTheta:.72,tPhi:1.02,tDist:23};
+const HOME={tTheta:.72,tPhi:1.02,tDist:30};
 function flyTo(key){
   const b=builds[key];
   const a2=Math.atan2(b.x,b.z);
-  const to={theta:a2+Math.PI+.35,phi:1.12,dist:6.5,tgt:new THREE.Vector3(b.x,1.4,b.z)};
+  const to={theta:a2+Math.PI+.35,phi:1.15,dist:8.5,tgt:new THREE.Vector3(b.x,1.4,b.z)};
   cam.fly={t:0,from:{theta:cam.theta,phi:cam.phi,dist:cam.dist,tgt:cam.tgt.clone()},to};
   cam.tTheta=to.theta;cam.tPhi=to.phi;cam.tDist=to.dist;
   setTimeout(()=>window.__co.openPage(key),680);
@@ -1439,8 +1468,48 @@ function flyHome(){
   cam.fly={t:0,from:{theta:cam.theta,phi:cam.phi,dist:cam.dist,tgt:cam.tgt.clone()},to};
   cam.tTheta=to.theta;cam.tPhi=to.phi;cam.tDist=to.dist;
 }
-document.getElementById('homeFab').addEventListener('click',()=>setTimeout(flyHome,120));
-addEventListener('keydown',e=>{if(e.key==='Escape'&&!document.body.classList.contains('detail-open'))flyHome()});
+document.getElementById('homeFab').addEventListener('click',()=>setTimeout(()=>{if(ride)endRide();else flyHome()},120));
+addEventListener('keydown',e=>{if(e.key==='Escape'&&!document.body.classList.contains('detail-open')){if(ride)endRide();else flyHome()}});
+
+/* ===== 摩天轮 / 小火车 骑乘交互 ===== */
+let ride=null; // {type:'ferris'|'train'|'return', fromEye, fromLook, look, ktt}
+const HOME_TGT=new THREE.Vector3(0,1.6,0);
+function showToast(txt){
+  let el=document.getElementById('rideToast');
+  if(!el){el=document.createElement('div');el.id='rideToast';el.style.cssText='position:fixed;left:50%;top:16%;transform:translateX(-50%) translateY(6px);z-index:9999;background:rgba(67,40,26,.92);color:#fff;padding:10px 20px;border-radius:99px;font-size:14px;pointer-events:none;transition:opacity .3s,transform .3s;opacity:0;font-family:inherit';document.body.appendChild(el);}
+  el.textContent=txt;el.style.opacity=1;el.style.transform='translateX(-50%) translateY(0)';
+  clearTimeout(el._t);el._t=setTimeout(()=>{el.style.opacity=0;el.style.transform='translateX(-50%) translateY(6px)'},1800);
+}
+function eyeOf(c){
+  return new THREE.Vector3(c.tgt.x+c.dist*Math.sin(c.phi)*Math.sin(c.theta),
+                           c.tgt.y+c.dist*Math.cos(c.phi),
+                           c.tgt.z+c.dist*Math.sin(c.phi)*Math.cos(c.theta));
+}
+function ensureRideBack(){
+  let el=document.getElementById('rideBack');
+  if(!el){el=document.createElement('div');el.id='rideBack';el.style.cssText='position:fixed;left:50%;bottom:32px;transform:translateX(-50%);z-index:9999;background:rgba(244,160,0,.96);color:#43281a;padding:12px 26px;border-radius:99px;font-size:15px;font-weight:600;letter-spacing:.5px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s;font-family:inherit;box-shadow:0 10px 26px rgba(0,0,0,.28)';el.addEventListener('click',endRide);document.body.appendChild(el);}
+  return el;
+}
+function startRide(type){
+  ensureRideBack();
+  ride={type,fromEye:camera.position.clone(),fromLook:cam.tgt.clone(),look:cam.tgt.clone(),ktt:0};
+  const el=document.getElementById('rideBack');
+  el.textContent=lang==='en'?'Back to the island →':'返回小岛 →';
+  el.style.opacity=1;el.style.pointerEvents='auto';
+  showToast(type==='train'?(lang==='en'?'Choo choo～ around the island! 🚂':'呜呜～环岛小火车出发啦 🚂'):(lang==='en'?'Wheee～ enjoy the ride! 🎡':'坐稳咯～摩天轮转起来啦 🎡'));
+}
+function endRide(){
+  if(!ride||ride.type==='return')return;
+  const prevLook=ride.look.clone();
+  ride={type:'return',fromEye:camera.position.clone(),fromLook:prevLook,look:prevLook.clone(),ktt:0};
+  const el=document.getElementById('rideBack');
+  if(el){el.style.opacity=0;el.style.pointerEvents='none';}
+}
+function rideRide(which){
+  if(ride&&ride.type===which){endRide();return;}
+  if(ride)return;
+  startRide(which);
+}
 
 /* ===== 动画循环 ===== */
 let introFired=false;
@@ -1536,6 +1605,12 @@ function ease(t){return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2}
   surf.scale.setScalar(1+Math.sin(t*1.7)*.03);
   surf2.scale.setScalar(1+Math.sin(t*1.7+1.3)*.045);
   waves.forEach((w,i)=>{w.m.scale.setScalar(.75+Math.abs(Math.sin(t*2.2+i*.6))*.5);w.m.position.y=-1.46+Math.sin(t*2.2+i*.6)*.05});
+  /* 小帆船缓缓漂动 + 上下浮动 */
+  boat.position.y=-1.68+Math.sin(t*1.2)*.14;
+  boat.rotation.x=Math.sin(t*.85)*.06;
+  boat.rotation.z=Math.sin(t*1.05)*.05;
+  boat.position.x=11+Math.sin(t*.22)*1.4;
+  boat.position.z=6.5+Math.cos(t*.22)*1.4;
   /* 飞机拖横幅绕岛飞行 */
   planeT=(planeT+dt*.045)%1;
   {
@@ -1562,6 +1637,43 @@ function ease(t){return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2}
     b.group.scale.set(s,s,s);
     const tilt=on?Math.sin(t*6)*.06:0;
     b.group.rotation.z+=(tilt-b.group.rotation.z)*.12;
+  }
+  /* ===== 骑乘视角：摩天轮吊舱 / 小火车（覆盖相机） ===== */
+  if(ride){
+    scene.updateMatrixWorld(true);
+    const eye=new THREE.Vector3(), look=new THREE.Vector3();
+    if(ride.type==='return'){
+      const to=eyeOf({theta:HOME.tTheta,phi:HOME.tPhi,dist:HOME.tDist,tgt:HOME_TGT});
+      ride.ktt=Math.min(1,ride.ktt+dt/.9); const k=ease(ride.ktt);
+      eye.lerpVectors(ride.fromEye,to,k);
+      look.lerpVectors(ride.fromLook,HOME_TGT,k);
+      if(ride.ktt>=1){
+        ride=null;
+        cam.theta=HOME.tTheta;cam.phi=HOME.tPhi;cam.dist=HOME.tDist;
+        cam.tTheta=cam.theta;cam.tPhi=cam.phi;cam.tDist=cam.dist;
+        cam.tgt.copy(HOME_TGT);cam.fly=null;
+      }
+    }else if(ride.type==='ferris'){
+      const cab=new THREE.Vector3();cabins[0].getWorldPosition(cab);
+      const hub=new THREE.Vector3();wheel.getWorldPosition(hub);
+      const d=new THREE.Vector3().subVectors(cab,hub);d.normalize();
+      const eyeT=new THREE.Vector3().copy(cab).addScaledVector(d,.35);eyeT.y+=.35;
+      const lookT=new THREE.Vector3(0,3.4,0);
+      ride.ktt+=dt; const k=ease(Math.min(1,ride.ktt/1.3));
+      eye.lerpVectors(ride.fromEye,eyeT,k);
+      look.lerpVectors(ride.fromLook,lookT,k);
+    }else if(ride.type==='train'){
+      const pos=new THREE.Vector3();cars[0].getWorldPosition(pos);
+      const p=curve.getPointAt(trainT),p2=curve.getPointAt((trainT+.004)%1);
+      const fwd=new THREE.Vector3(p2.x-p.x,0,p2.z-p.z).normalize();
+      const out=new THREE.Vector3(pos.x,0,pos.z).normalize();
+      const eyeT=new THREE.Vector3().copy(pos).addScaledVector(fwd,-1.6).addScaledVector(out,.8);eyeT.y+=1.9;
+      const lookT=new THREE.Vector3().copy(pos).addScaledVector(fwd,6).addScaledVector(out,-1.8);lookT.y+=.9;
+      ride.ktt+=dt; const k=ease(Math.min(1,ride.ktt/1.3));
+      eye.lerpVectors(ride.fromEye,eyeT,k);
+      look.lerpVectors(ride.fromLook,lookT,k);
+    }
+    if(ride){ride.look.copy(look);camera.position.copy(eye);camera.lookAt(look);}
   }
   renderer.render(scene,camera);
   if(!introFired){introFired=true;if(window.__introsFinish)setTimeout(window.__introsFinish,450)}
